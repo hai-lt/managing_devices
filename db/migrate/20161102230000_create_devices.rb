@@ -1,7 +1,7 @@
 class CreateDevices < ActiveRecord::Migration[5.0]
   def change
     create_table :devices do |t|
-      t.strong :name
+      t.string :name
       t.date :import_date
       t.text :desc
       t.string :status

@@ -11,7 +11,7 @@ class CreateRegisterDevices < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
-    add_foreign_key :register_devices, :lessons, column: :from, on_delete: :cascade
-    add_foreign_key :register_devices, :lessons, column: :to, on_delete: :cascade
+    add_foreign_key :register_devices, :lessons, column: :from, primary_key: "code", on_delete: :cascade
+    add_foreign_key :register_devices, :lessons, column: :to, primary_key: "code", on_delete: :cascade
   end
 end
