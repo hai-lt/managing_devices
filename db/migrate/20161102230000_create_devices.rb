@@ -9,13 +9,13 @@ class CreateDevices < ActiveRecord::Migration[5.0]
       t.string :brand
       t.string :made_by
       t.date :date_producer
-      t.integer :reporter_id
+      # t.integer :reporter_id
       t.references :category, foreign_key: true
       t.references :room, foreign_key: true
 
       t.timestamps
     end
 
-    add_foreign_key :devices, :users, column: :reporter_id, on_delete: :cascade
+    # add_foreign_key :devices, :users, column: :reporter_id, on_delete: :cascade
   end
 end

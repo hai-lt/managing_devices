@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20161102231522) do
     t.string   "brand"
     t.string   "made_by"
     t.date     "date_producer"
-    t.integer  "reporter_id"
     t.integer  "category_id"
     t.integer  "room_id"
     t.datetime "created_at",    null: false
@@ -41,8 +40,8 @@ ActiveRecord::Schema.define(version: 20161102231522) do
   end
 
   create_table "lessons", primary_key: "code", id: :string, force: :cascade do |t|
-    t.time     "start"
-    t.time     "finish"
+    t.integer  "start"
+    t.integer  "finish"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -108,7 +107,6 @@ ActiveRecord::Schema.define(version: 20161102231522) do
 
   add_foreign_key "devices", "categories"
   add_foreign_key "devices", "rooms"
-  add_foreign_key "devices", "users", column: "reporter_id", on_delete: :cascade
   add_foreign_key "register_devices", "devices"
   add_foreign_key "register_devices", "lessons", column: "from", primary_key: "code", on_delete: :cascade
   add_foreign_key "register_devices", "lessons", column: "to", primary_key: "code", on_delete: :cascade
