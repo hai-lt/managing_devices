@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'auth/login'
+
+  get 'auth/signup'
+
   resources :rooms
   resources :lessons
   resources :positions
