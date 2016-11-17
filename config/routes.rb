@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'reports/index'
+
+  get 'reports/update'
+
+  get 'reports/destroy'
+
+  get 'reports/edit'
+
+  get 'reports/new'
+
   get 'registers/index'
 
   get 'registers/update'
