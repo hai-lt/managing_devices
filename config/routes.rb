@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'registers/index'
+
+  get 'registers/update'
+
+  get 'registers/destroy'
+
+  get 'registers/edit'
+
+  get 'registers/new'
+
   get 'auth/login'
 
   get 'auth/signup'
