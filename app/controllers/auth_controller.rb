@@ -24,6 +24,14 @@ class AuthController < ApplicationController
     end
   end
 
+  def forgot_password
+    if params[:key]
+
+    end
+    #send email to permit_params[:email]
+    # attach a link to reset passwod
+  end
+
   private
     def permit_params
       params.permit(:email, :password, :remember_me)
