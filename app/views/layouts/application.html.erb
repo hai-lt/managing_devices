@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" class="row">
+  <body data-spy="scroll" data-target=".navbar" data-offset="60" class="row">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -30,6 +30,7 @@
         </div>
       </div>
     </nav>
+
     <div class="row" style="padding: 20px">
       <div class="col-sm-12 col-lg-12 col-xs-12">
         <%= yield %>
@@ -37,10 +38,7 @@
     </div>
 
     <footer align='center'>
-      <a href="#myPage" title="To Top" align-content='center' class="a-decoration-none">
-        Move Top
-      </a>
-      <p align= 'center'>Copyright by <a href="http://fb.com/tanhaiit">Tan Hai</a></p>
+      <p align= 'center'>Initialize by <a href="http://fb.com/tanhaiit">Tan Hai</a></p>
     </footer>
   </body>
 </html>
