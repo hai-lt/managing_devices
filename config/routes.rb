@@ -1,27 +1,6 @@
 Rails.application.routes.draw do
-  get 'reports/index'
-
-  get 'reports/update'
-
-  get 'reports/destroy'
-
-  get 'reports/edit'
-
-  get 'reports/new'
-
-  get 'registers/index'
-
-  get 'registers/update'
-
-  get 'registers/destroy'
-
-  get 'registers/edit'
-
-  get 'registers/new'
-
-  get 'auth/login'
-
-  get 'auth/signup'
+  post 'auth', to: 'auth#login'
+  get 'auth', to: 'auth#create'
 
   resources :rooms
   resources :lessons
