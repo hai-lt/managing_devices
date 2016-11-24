@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "./db/seed/category"
+require "./db/seed/device"
+require "./db/seed/rank"
+require "./db/seed/position"
+require "./db/seed/room"
+require "./db/seed/lesson"

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  import_date: 2016-11-03
+  desc: MyText
+  status: MyString
+  price: 
+  brand: MyString
+  made_by: MyString
+  date_producer: 2016-11-03
+  category: one
+  room: one
+
+two:
+  name: 
+  import_date: 2016-11-03
+  desc: MyText
+  status: MyString
+  price: 
+  brand: MyString
+  made_by: MyString
+  date_producer: 2016-11-03
+  category: two
+  room: two
