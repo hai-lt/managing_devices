@@ -1,2 +1,10 @@
-<h1>Auth#login</h1>
-<p>Find me in app/views/auth/login.html.erb</p>
+<%= form_for(@user, url: auth_path) do |f| %>
+  <%= f.email_field :email, class: '', placeholder: 'Email' %>
+  <%= f.password_field :password, class: '', placeholder: 'Password' %>
+  <%= f.submit 'Log In', class: '' %>
+<% end %>
+
+<br><br>
+===================================
+
+Xoa dong nay di, roi them cac class css vao trong dau '' cua class:

@@ -1,14 +1,14 @@
 class AuthController < ApplicationController
   def login
-    binding.pry
     user = User.find_by(email: permit_params[:email])
-    if user.authenticate(permit_params[:password])
+    if user.present? && user.authenticate(permit_params[:password])
       token = generate_access_token(user)
       AccessToken.create!(access_token: token, user: user)
       session[:access_token] = token
-      redirect_to 'devices#index'
+      redirect_to devices_path
     else
-      render 'new'
+      @user = User.new
+      render 'login'
     end
   end
 
@@ -28,7 +28,7 @@ class AuthController < ApplicationController
 
   private
     def permit_params
-      params.permit(:email, :password, :remember_me)
+      params.require(:user).permit(:email, :password, :remember_me)
     end
 
     def signup_permit
