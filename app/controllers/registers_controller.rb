@@ -32,6 +32,6 @@ class RegistersController < ApplicationController
     end
 
     def permit_params
-      params.require(:register_device).permit(:reason, :device_id, :from, :to. :id)
+      params.require(:register_device).permit(:reason, :device_id, :from, :to, :id)
     end
 end
