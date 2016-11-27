@@ -1,5 +1,5 @@
 class RegistersController < ApplicationController
-  before_action :get_object, only: [:edit, :show]
+  before_action :authenticate?
 
   def index
     @register_devices = RegisterDevice.all
@@ -14,14 +14,26 @@ class RegistersController < ApplicationController
   end
 
   def destroy
-    @register_device.destroy
+    binding.pry
+    RegisterDevice.find(params[:id]).destroy
+    redirect_to registers_path
   end
 
   def edit
 
   end
 
+  def create
+    binding.pry
+    params[:register_device].merge!(device_id: params[:id])
+    @register_device = RegisterDevice.new(permit_params.merge!(user_id: @current_user.id))
+    render 'new' unless @register_device.save
+    redirect_to registers_path
+  end
+
   def new
+    @device = Device.find(params[:id])
+    @lessons = Lesson.all
     @register_device = RegisterDevice.new
   end
 
@@ -32,6 +44,6 @@ class RegistersController < ApplicationController
     end
 
     def permit_params
-      params.require(:register_device).permit(:reason, :device_id, :from, :to. :id)
+      params.require(:register_device).permit(:reason, :device_id, :from, :to, :id)
     end
 end

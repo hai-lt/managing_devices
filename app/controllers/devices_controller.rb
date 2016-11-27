@@ -5,6 +5,7 @@ class DevicesController < ApplicationController
   end
 
   def index
+    authenticate?
     @devices = Device.all
   end
 

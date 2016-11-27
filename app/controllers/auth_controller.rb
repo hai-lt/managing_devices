@@ -18,12 +18,10 @@ class AuthController < ApplicationController
   def create
     @user = User.new
   end
+
   def forgot_password
     if params[:key]
-
     end
-    #send email to permit_params[:email]
-    # attach a link to reset password
   end
 
   private
@@ -35,11 +33,4 @@ class AuthController < ApplicationController
       params.permit(:email, :password, :password_confirmation)
     end
 
-    def generate_access_token(user = nil)
-      "#{ Digest::MD5::hexdigest(user.try(:email).try(:downcase).to_s + Time.new.to_s) }"
-    end
-
-    def current_user
-      @current_user ||= AccessToken.find_by(access_token: cookies[:access_token]).try(:user)
-    end
 end

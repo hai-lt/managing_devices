@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   post 'auth', to: 'auth#login'
   get 'auth', to: 'auth#create'
 
+  get 'registers', to: 'registers#index'
+  post 'registers', to: 'registers#create'
+  delete 'registers/:id', to: 'registers#destroy'
+  get 'registers/new', to: 'registers#new'
   resources :rooms
   resources :lessons
   resources :positions

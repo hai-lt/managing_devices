@@ -1,2 +1,35 @@
-<h1>Registers#index</h1>
-<p>Find me in app/views/registers/index.html.erb</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Device</th>
+      <th>Reason</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @register_devices.each do |rd| %>
+      <tr>
+        <td>
+          <%= rd.device.name %>
+        </td>
+        <td>
+          <%= rd.reason %>
+        </td>
+        <td>
+          <%= rd.from %>
+        </td>
+        <td>
+          <%= rd.to %>
+        </td>
+        <td>
+          <%= rd.status %>
+        </td>
+        <td><%= link_to 'Delete', { controller: 'registers', action: :destroy, id: rd.id }, method: :delete%></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>

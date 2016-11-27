@@ -1,0 +1,6 @@
+<div class="col-sm-4 col-xs-3 col-lg-3 col-sm-offset-1" style="border: solid 1px red">
+    Name: <%= device.name %> |
+    status: <%= device.status %> |
+    id: <%= device.id %> |
+    <%= button_to 'Register', registers_new_path, method: :get, params: { id: device.id } %>
+</div>
