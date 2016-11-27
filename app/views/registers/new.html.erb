@@ -1,2 +1,9 @@
-<h1>Registers#new</h1>
-<p>Find me in app/views/registers/new.html.erb</p>
+<%= form_for(@register_device, url: registers_path) do |f| %>
+  <%= f.label :name, value: "Name: #{@device.name}" %>
+  <%= f.text_area :reason, placeholder: 'Reason' %>
+  <div class="contain">
+    <%= f.collection_select :from, @lessons, :code, :code, prompt: "From", class: '' %>
+    <%= f.collection_select :to, @lessons, :code, :code, prompt: "To" %>
+  </div>
+  <%= button_to 'Commit', registers_path, method: :post, params: { id: @device.id }, class: 'btn btn-warning' %>
+<% end %>
