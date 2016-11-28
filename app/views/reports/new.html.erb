@@ -1,2 +1,9 @@
-<h1>Reports#new</h1>
-<p>Find me in app/views/reports/new.html.erb</p>
+<%= form_for @report, as: :report, url: reports_path, method: :post, params: { device_id: @device.id } do |f| %>
+  <%= f.text_field :device, value: @device.name %>
+  <%= f.text_field :device_id, value: @device.id, type: 'hidden' %>
+  <%= f.text_area :desc, placeholder: 'Description' %>
+  <%= f.collection_select :rank_id, @ranks, :level, :level %>
+  <%= button_tag(type: 'submit', class: 'btn btn-warning') do %>
+    <span class="glyphicon glyphicon-send"></span>
+  <% end %>
+<% end %>

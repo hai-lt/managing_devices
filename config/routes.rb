@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   post 'registers', to: 'registers#create'
   delete 'registers/:id', to: 'registers#destroy'
   get 'registers/new', to: 'registers#new'
-  resources :rooms
-  resources :lessons
-  resources :positions
+  # resources :rooms
+  # resources :lessons
+  # resources :positions
   resources :categories
-  resources :ranks
+  resources :reports
+  # resources :ranks
   resources :devices
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

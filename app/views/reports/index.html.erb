@@ -1,2 +1,38 @@
-<h1>Reports#index</h1>
-<p>Find me in app/views/reports/index.html.erb</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Device</th>
+      <th>Description</th>
+      <th>Rank</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reports.each do |rp| %>
+      <tr>
+        <td>
+          <%= rp.device.name %>
+        </td>
+        <td>
+          <%= rp.rank.level %>
+        </td>
+        <td>
+          <%= rp.desc %>
+        </td>
+        <td>
+          <%= rp.created_at.strftime("%b #{ rp.created_at.day.ordinalize }, %Y") %>
+        </td>
+        <td>
+          <%= link_to report_path(rp), method: :delete, data: { confirm: 'Are you sure?' } do%>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+          <%= link_to edit_report_path(rp) do%>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
