@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   post 'auth', to: 'auth#login'
   get 'auth', to: 'auth#create'
+  get 'logout', to: 'auth#logout'
 
   get 'registers', to: 'registers#index'
   post 'registers', to: 'registers#create'

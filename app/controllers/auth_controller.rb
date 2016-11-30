@@ -12,6 +12,12 @@ class AuthController < ApplicationController
     end
   end
 
+  def logout
+    AccessToken.find_by(access_token: session[:access_token]).try(:destroy)
+    session[:access_token] = nil
+    redirect_to auth_path
+  end
+
   def signup
   end
 
