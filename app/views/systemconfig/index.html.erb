@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col col-sm-6">
+    <h2>Rooms</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Capacity
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'systemconfig/room', collection: @rooms %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col col-sm-6">
+    <h2>Positions</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'systemconfig/position', collection: @positions %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col col-sm-6">
+    <h2>Ranks</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Level
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'systemconfig/rank', collection: @ranks %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col col-sm-6">
+    <h2>Lessons</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Code
+          </th>
+          <th>
+            Start
+          </th>
+          <th>
+            Finish
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'systemconfig/lesson', collection: @lessons %>
+      </tbody>
+    </table>
+  </div>
+</div>

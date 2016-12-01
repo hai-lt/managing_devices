@@ -14,7 +14,6 @@ class RegistersController < ApplicationController
   end
 
   def destroy
-    binding.pry
     RegisterDevice.find(params[:id]).destroy
     redirect_to registers_path
   end
@@ -24,7 +23,6 @@ class RegistersController < ApplicationController
   end
 
   def create
-    binding.pry
     params[:register_device].merge!(device_id: params[:id])
     @register_device = RegisterDevice.new(permit_params.merge!(user_id: @current_user.id))
     render 'new' unless @register_device.save
