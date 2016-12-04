@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row div-warning">
   <div class="col col-sm-6">
     <h2 class="text-center">Positions</h2>
     <%= button_to new_position_path, remote: true, method: :get, class: 'label btn-warning small' do %>
@@ -34,7 +34,9 @@
     </table>
   </div>
 </div>
-<div class="row">
+<div class="row col-sm-12" style="height: 5px">
+</div>
+<div class="row div-warning">
   <div class="col col-sm-6">
     <h2 class="text-center">Rooms</h2>
     <%= button_to new_room_path, remote: true, method: :get, class: 'label btn-warning small' do %>
