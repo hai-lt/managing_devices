@@ -54,7 +54,7 @@
         </tr>
       </thead>
       <tbody>
-        <%= render partial: 'systemconfig/room', collection: @rooms, as: :room %>
+        <%= render @rooms, as: :room %>
       </tbody>
     </table>
     <%= form_for @room, remote: true, method: :post do |f| %>
