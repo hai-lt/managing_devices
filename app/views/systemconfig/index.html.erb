@@ -63,11 +63,17 @@
   </div>
   <div class="col col-sm-6">
     <h2 class="text-center">Lessons</h2>
-    <table class="table table-striped">
+    <%= button_to new_lesson_path, remote: true, method: :get, class: 'label btn-warning small' do %>
+      Add new <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
+    <table class="table table-striped" id='lessons'>
       <thead>
         <tr>
           <th>
             Code
+          </th>
+          <th>
+            Name
           </th>
           <th>
             Start
@@ -78,7 +84,7 @@
         </tr>
       </thead>
       <tbody>
-        <%= render partial: 'systemconfig/lesson', collection: @lessons %>
+        <%= render @lessons %>
       </tbody>
     </table>
   </div>
