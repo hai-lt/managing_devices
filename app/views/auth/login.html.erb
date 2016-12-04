@@ -1,10 +1,10 @@
 <%= form_for(@user, url: auth_path) do |f| %>
-  <%= f.email_field :email, class: '', placeholder: 'Email' %>
-  <%= f.password_field :password, class: '', placeholder: 'Password' %>
+  <div class="">
+    <%= f.email_field :email, class: 'class_', placeholder: 'Email' %>
+    <%= f.password_field :password, class: '', placeholder: 'Password' %>
+  </div>
   <%= f.submit 'Log In', class: '' %>
 <% end %>
 
 <br><br>
 ===================================
-
-Xoa dong nay di, roi them cac class css vao trong dau '' cua class:
