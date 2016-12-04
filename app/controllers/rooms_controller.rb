@@ -40,8 +40,8 @@ class RoomsController < ApplicationController
   def edit
     @room = Room.find_by(id: params[:id])
     respond_to do |format|
-      format.html { render partial: 'modals/room_modal', object: @room }
-      format.js { render file: 'modals/room_modal' }
+      format.html { }
+      format.js { }
     end
   end
 
