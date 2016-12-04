@@ -29,7 +29,7 @@ class RoomsController < ApplicationController
     respond_to do |format|
       if @room.destroy
         # format.html { redirect_to @room, success: 'Room has already deleted' }
-        format.js { render file: 'systemconfig/destroy_room'}
+        format.js { }
       end
     end
   end
