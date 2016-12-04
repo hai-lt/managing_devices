@@ -1,11 +1,10 @@
 class RoomsController < ApplicationController
   def create
     @room = Room.create(permit_params)
-
     respond_to do |format|
       if @room
         format.html { redirect_to @room, notice: 'Create successfully' }
-        format.js { render file: "systemconfig/create_room" }
+        format.js {  }
         format.json { render json: @room, status: :created, location: @room }
       end
     end
