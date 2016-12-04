@@ -1,0 +1,11 @@
+
+    <%= form_for @room, method: :put, remote: true do |f| %>
+      <%= f.text_field :block, placeholder: 'Block' %>
+      <%= f.text_field :no, placeholder: 'No' %>
+      <%= f.text_field :capacity, placeholder: 'Capacity'%>
+      <div class="modal-footer">
+        <%= f.button :submit, class: 'btn btn-warning' do %>
+          <span class="glyphicon glyphicon-send"></span>
+        <% end %>
+      </div>
+    <% end %>

@@ -1,0 +1,3 @@
+$('#room_modal').modal('toggle');
+$("#room_<%= @room.id %>").replaceWith("<%= j render partial: 'systemconfig/room', locals: { room: @room } %>");
+$('#room_modal').modal('hide');

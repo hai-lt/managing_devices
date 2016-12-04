@@ -7,13 +7,15 @@ Rails.application.routes.draw do
   post 'registers', to: 'registers#create'
   delete 'registers/:id', to: 'registers#destroy'
   get 'registers/new', to: 'registers#new'
-  # resources :rooms
-  # resources :lessons
-  # resources :positions
+
+  resources :rooms, only: [:create, :update, :destroy, :edit]
+  resources :lessons, only: [:create, :update, :destroy, :edit]
+  resources :ranks, only: [:create, :update, :destroy, :edit]
+  resources :positions, only: [:create, :update, :destroy, :edit]
   resources :categories
   resources :reports
-  # resources :ranks
   resources :devices
+
   get 'systemconfig', to: 'systemconfig#system'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

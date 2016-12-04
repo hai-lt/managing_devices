@@ -1,26 +1,5 @@
 <div class="row">
   <div class="col col-sm-6">
-    <h2>Rooms</h2>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>
-            Name
-          </th>
-          <th>
-            Capacity
-          </th>
-          <th>
-            Description
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render partial: 'systemconfig/room', collection: @rooms %>
-      </tbody>
-    </table>
-  </div>
-  <div class="col col-sm-6">
     <h2>Positions</h2>
     <table class="table table-striped">
       <thead>
@@ -38,8 +17,6 @@
       </tbody>
     </table>
   </div>
-</div>
-<div class="row">
   <div class="col col-sm-6">
     <h2>Ranks</h2>
     <table class="table table-striped">
@@ -57,6 +34,37 @@
         <%= render partial: 'systemconfig/rank', collection: @ranks %>
       </tbody>
     </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col col-sm-6">
+    <h2>Rooms</h2>
+    <table class="table table-striped" id='rooms'>
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Capacity
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'systemconfig/room', collection: @rooms, as: :room %>
+      </tbody>
+    </table>
+    <%= form_for @room, remote: true, method: :post do |f| %>
+    <%= f.text_field :no, placeholder: 'Number' %>
+    <%= f.text_field :block, placeholder: 'Block Name' %>
+    <%= f.text_field :capacity, placeholder: 'Capacity' %>
+    <%= button_tag(type: 'submit', class: 'btn btn-warning') do%>
+    <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
+    <% end %>
   </div>
   <div class="col col-sm-6">
     <h2>Lessons</h2>
@@ -80,3 +88,4 @@
     </table>
   </div>
 </div>
+<%= render 'modals/room_modal' %>
