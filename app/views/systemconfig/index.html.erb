@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col col-sm-6">
-    <h2>Positions</h2>
+    <h2 class="text-center">Positions</h2>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -18,7 +18,7 @@
     </table>
   </div>
   <div class="col col-sm-6">
-    <h2>Ranks</h2>
+    <h2 class="text-center">Ranks</h2>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -38,7 +38,10 @@
 </div>
 <div class="row">
   <div class="col col-sm-6">
-    <h2>Rooms</h2>
+    <h2 class="text-center">Rooms</h2>
+    <%= button_to new_room_path, remote: true, method: :get, class: 'label btn-warning small' do %>
+      Add new <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
     <table class="table table-striped" id='rooms'>
       <thead>
         <tr>
@@ -57,17 +60,9 @@
         <%= render @rooms, as: :room %>
       </tbody>
     </table>
-    <%= form_for @room, remote: true, method: :post do |f| %>
-    <%= f.text_field :no, placeholder: 'Number' %>
-    <%= f.text_field :block, placeholder: 'Block Name' %>
-    <%= f.text_field :capacity, placeholder: 'Capacity' %>
-    <%= button_tag(type: 'submit', class: 'btn btn-warning') do%>
-    <span class="glyphicon glyphicon-plus"></span>
-    <% end %>
-    <% end %>
   </div>
   <div class="col col-sm-6">
-    <h2>Lessons</h2>
+    <h2 class="text-center">Lessons</h2>
     <table class="table table-striped">
       <thead>
         <tr>

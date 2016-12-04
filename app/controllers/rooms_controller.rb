@@ -11,7 +11,7 @@ class RoomsController < ApplicationController
   end
 
   def index
-    @rooms = Room.all
+    @rooms = Room.all.order_by(:id)
   end
 
   def update
@@ -46,6 +46,11 @@ class RoomsController < ApplicationController
   end
 
   def new
+    @room = Room.new
+    respond_to do |format|
+      format.html { }
+      format.js { render file: 'rooms/edit'}
+    end
   end
 
   private

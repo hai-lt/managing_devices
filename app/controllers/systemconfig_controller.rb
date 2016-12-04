@@ -1,14 +1,10 @@
 class SystemconfigController < ApplicationController
   before_action :admin_authentication?
   def system
-    @rooms = Room.all
-    @room = Room.new
-    @lessons = Lesson.all
-    @lesson = Lesson.new
-    @positions = Position.all
-    @position = Position.new
-    @ranks = Rank.all
-    @rank = Rank.new
+    @rooms = Room.all.order(:id)
+    @lessons = Lesson.all.order(:code)
+    @positions = Position.all.order(:id)
+    @ranks = Rank.all.order(:level)
     render 'index'
   end
 

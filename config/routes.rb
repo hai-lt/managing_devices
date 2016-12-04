@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   delete 'registers/:id', to: 'registers#destroy'
   get 'registers/new', to: 'registers#new'
 
-  resources :rooms, only: [:create, :update, :destroy, :edit]
-  resources :lessons, only: [:create, :update, :destroy, :edit]
-  resources :ranks, only: [:create, :update, :destroy, :edit]
-  resources :positions, only: [:create, :update, :destroy, :edit]
+  resources :rooms, only: [:create, :update, :destroy, :edit, :new]
+  resources :lessons, only: [:create, :update, :destroy, :edit, :new]
+  resources :ranks, only: [:create, :update, :destroy, :edit, :new]
+  resources :positions, only: [:create, :update, :destroy, :edit, :new]
   resources :categories
   resources :reports
   resources :devices
