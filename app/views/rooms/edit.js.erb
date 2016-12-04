@@ -1,2 +1,3 @@
-$('.modal-body').html("<%= j render partial: 'rooms/form', object: @room  %>");
-$("#room_modal").modal('show');
+$("#simple_modal").find('.modal-body').html("<%= j render partial: 'rooms/form', object: @room  %>");
+$("#simple_modal").find('.title-modal').html('Room');
+$("#simple_modal").modal('show');
