@@ -3,11 +3,7 @@ Rails.application.routes.draw do
   get 'auth', to: 'auth#create'
   get 'logout', to: 'auth#logout'
 
-  get 'registers', to: 'registers#index'
-  post 'registers', to: 'registers#create'
-  delete 'registers/:id', to: 'registers#destroy'
-  get 'registers/new', to: 'registers#new'
-
+  resources :registers
   resources :rooms, only: [:create, :update, :destroy, :edit, :new]
   resources :lessons, only: [:create, :update, :destroy, :edit, :new]
   resources :ranks, only: [:create, :update, :destroy, :edit, :new]

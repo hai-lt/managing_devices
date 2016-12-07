@@ -1,0 +1,45 @@
+<tr>
+  <% if @current_user.admin? %>
+    <td>
+      <%= register.user.name %>
+    </td>
+  <% end %>
+  <td>
+    <%= register.device.name %>
+  </td>
+  <td>
+    <%= register.reason %>
+  </td>
+  <td>
+    <%= register.from %>
+  </td>
+  <td>
+    <%= register.to %>
+  </td>
+  <td>
+    <label for="" class="label label-warning"><%= register.status %></label>
+  </td>
+  <td>
+      <div class="btn-group" role='group' style="">
+        <% if @current_user.admin? && register.status.casecmp('pending') == 0 %>
+          <div style="float: left; border-top-right-radius: 0px; border-bottom-right-radius: 0px;">
+          <%= form_for register, url: register_path(register), method: :put, style: 'border-radius: 0px'  do |f|%>
+            <%= f.hidden_field :status, value: 'accept' %>
+            <%= f.submit 'Accept', class: 'btn btn-warning btn-xs' %>
+          <% end %>
+          </div>
+          <div style="float: left">
+          <%= form_for register, url: register_path(register), method: :put  do |f| %>
+            <%= f.hidden_field :status, value: 'reject' %>
+            <%= f.submit 'Reject', class: 'btn btn-warning btn-xs', style: 'border-radius: 0px' %>
+          <% end %>
+        <% end %>
+        </div>
+        <div style="float: left">
+          <form>
+            <%= link_to 'Delete', { controller: 'registers', action: :destroy, id: register.id }, data: { confirm: 'Are you sure??' }, method: :delete, class: 'btn btn-warning btn-xs'%>
+          </form>
+        </div>
+      </div>
+  </td>
+</tr>

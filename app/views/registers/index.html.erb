@@ -1,35 +1,19 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <% if @current_user.admin? %>
+        <th>Name</th>
+      <% end %>
       <th>Device</th>
       <th>Reason</th>
       <th>From</th>
       <th>To</th>
       <th>Status</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @register_devices.each do |rd| %>
-      <tr>
-        <td>
-          <%= rd.device.name %>
-        </td>
-        <td>
-          <%= rd.reason %>
-        </td>
-        <td>
-          <%= rd.from %>
-        </td>
-        <td>
-          <%= rd.to %>
-        </td>
-        <td>
-          <%= rd.status %>
-        </td>
-        <td><%= link_to 'Delete', { controller: 'registers', action: :destroy, id: rd.id }, method: :delete%></td>
-      </tr>
-    <% end %>
+    <%= render partial: 'registers/register', collection: @register_devices, as: :register %>
   </tbody>
 
 </table>
+<% render 'modals/simple_modal' %>

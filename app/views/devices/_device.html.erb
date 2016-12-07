@@ -2,6 +2,6 @@
     Name: <%= device.name %> |
     status: <%= device.status %> |
     id: <%= device.id %> |
-    <%= button_to 'Register', registers_new_path, method: :get, params: { id: device.id } %>
+    <%= button_to 'Register', new_register_path, method: :get, params: { id: device.id } %>
     <%= button_to 'Report', new_report_path, method: :get, params: { id: device.id }%>
 </div>
