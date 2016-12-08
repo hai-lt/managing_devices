@@ -3,8 +3,11 @@ class ApplicationController < ActionController::Base
   include AuthHelper
 
   def admin_authentication?
-    current_user
-    render 'auth/create', object: @user = User.new unless @current_user && @current_user.admin?
+    if current_user
+      render 'errors/permission_denied' unless @current_user.admin?
+    else
+      render 'auth/create', object: @user = User.new
+    end
     @current_user
   end
 end
