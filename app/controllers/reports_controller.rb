@@ -2,7 +2,8 @@ class ReportsController < ApplicationController
   before_action :authenticate?
 
   def index
-    @reports = ReportDevice.where(user: @current_user).order(:created_at)
+    @reports = @current_user.admin? ? ReportDevice.all : ReportDevice.where(user: @current_user)
+    @reports = @reports.order(:created_at)
   end
 
   def update
@@ -15,8 +16,12 @@ class ReportsController < ApplicationController
   end
 
   def destroy
-    ReportDevice.find_by!(id: params[:id], user_id: @current_user.id).destroy
-    redirect_to reports_path
+    report = @current_user.admin? ? ReportDevice.find(params[:id]) : ReportDevice.find_by!(user: @current_user, id: params[:id])
+    if report.destroy
+      redirect_to reports_path
+    else
+      render 'index'
+    end
   end
 
   def edit
@@ -41,6 +46,6 @@ class ReportsController < ApplicationController
   private
 
     def permit_params
-      params.require(:report).permit(:desc, :rank_id, :device_id)
+      params.require(:report).permit(:desc, :rank_id, :device_id, :status)
     end
 end
