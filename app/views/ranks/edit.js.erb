@@ -1,0 +1,4 @@
+$("#simple_modal").find('.modal-body').html("<%= j render partial: 'ranks/form', object: @rank  %>");
+<% @title =  "#{ @rank.new_record? ? "<h3>Create Rank</h3>" : "<h3>Update Rank</h3>" }" %>
+$("#simple_modal").find('.modal-title').html("<%= @title.html_safe %>");
+$("#simple_modal").modal('show');

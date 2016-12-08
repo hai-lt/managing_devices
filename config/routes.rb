@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
   post 'auth', to: 'auth#login'
   get 'auth', to: 'auth#create'
+  get 'logout', to: 'auth#logout'
 
-  get 'registers', to: 'registers#index'
-  post 'registers', to: 'registers#create'
-  delete 'registers/:id', to: 'registers#destroy'
-  get 'registers/new', to: 'registers#new'
-  resources :rooms
-  resources :lessons
-  resources :positions
+  resources :registers
+  resources :rooms, only: [:create, :update, :destroy, :edit, :new]
+  resources :lessons, only: [:create, :update, :destroy, :edit, :new]
+  resources :ranks, only: [:create, :update, :destroy, :edit, :new]
+  resources :positions, only: [:create, :update, :destroy, :edit, :new]
   resources :categories
-  resources :ranks
+  resources :reports
   resources :devices
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'systemconfig', to: 'systemconfig#system'
+  get 'permission_denied', to: 'errors#permission_denied'
 end

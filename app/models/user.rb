@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  before_save :before_save
   belongs_to :position
   has_many :register_devices
   has_many :registers, through: :register_devices, foreign_key: :user_id, source: :device
@@ -8,4 +9,14 @@ class User < ApplicationRecord
   has_many :reports, through: :report_devices, foreign_key: :device_id, source: :device
 
   validates :password_confirmation, presence: { message: 'User: password_confirmation can not be blank' }
+
+  def admin?
+    self.role == 'admin'
+  end
+
+  private
+
+    def before_save
+      self.role.downcase! if self.role
+    end
 end
