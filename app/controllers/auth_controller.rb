@@ -5,7 +5,11 @@ class AuthController < ApplicationController
       token = generate_access_token(user)
       AccessToken.create!(access_token: token, user: user)
       session[:access_token] = token
-      redirect_to devices_path
+      if request.referrer.include? '/auth'
+        redirect_to devices_path
+      else
+        redirect_to request.referrer
+      end
     else
       @user = User.new
       render 'login'

@@ -4,7 +4,7 @@ module AuthHelper
   end
 
   def authenticate?
-    redirect_to auth_path unless current_user
+    render 'auth/create', object: @user = User.new unless current_user
   end
 
   def generate_access_token(user = nil)

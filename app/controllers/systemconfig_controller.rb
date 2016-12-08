@@ -1,5 +1,5 @@
 class SystemconfigController < ApplicationController
-  # before_action :admin_authentication?
+  before_action :admin_authentication?
   def system
     @rooms = Room.all.order(:id)
     @lessons = Lesson.all.order(:code)
