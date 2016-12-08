@@ -32,6 +32,11 @@ class ReportsController < ApplicationController
     @device = Device.find(params[:id])
     @ranks = Rank.all.order(:level)
     @report = ReportDevice.new
+
+    respond_to do |format|
+      format.html { }
+      format.js { }
+    end
   end
 
   def create
