@@ -1,10 +1,12 @@
 <h1>Danh sách các thiết bị:</h1>
 <% if @current_user.admin? %>
   <div class="" style="margin: 10px">
-    <%= button_to new_device_path, method: :get, class: 'btn btn-xs btn-warning' do %>
+    <%= button_to new_device_path, remote: true, method: :get, class: 'btn btn-xs btn-warning' do %>
     Add device <span class="glyphicon glyphicon-plus"></span>
     <% end %>
   </div>
 <% end %>
 <%= 'Hiện chưa có thiết bị nào được hiện thị' if @devices.blank? %>
   <%= render @devices if @devices.present? %>
+
+<%= render 'modals/simple_modal' %>

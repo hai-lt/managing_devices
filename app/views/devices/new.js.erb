@@ -1,0 +1,7 @@
+var modal = $('#simple_modal');
+modal.find('.modal-body').html("<%= j render partial: 'form', object: @device %>")
+modal.find('.modal-title').html('Create Device');
+modal.modal('show');
+modal.on('shown.bs.modal', function () {
+  $('.first_input').focus()
+});

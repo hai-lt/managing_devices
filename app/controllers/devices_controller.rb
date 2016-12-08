@@ -2,6 +2,13 @@ class DevicesController < ApplicationController
   before_action :get_device, only: [:show, :edit, :update, :destroy]
 
   def create
+    admin_authentication?
+    device = Device.create!(permit_params)
+
+    respond_to do |format|
+      format.html { redirect_to devices_path }
+      format.js { }
+    end
   end
 
   def show
@@ -24,14 +31,18 @@ class DevicesController < ApplicationController
   end
 
   def new
-    binding.pry
     @device = Device.new
+
+    respond_to do |format|
+      format.html { }
+      format.js { }
+    end
   end
 
   private
 
     def permit_params
-      params.permit(:id)
+      params.require(:device).permit(:id, :category_id, :name, :desc, :brand,:price)
     end
 
     def get_device

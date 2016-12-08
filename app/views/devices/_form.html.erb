@@ -1,0 +1,32 @@
+<%= form_for @device do |f| %>
+  <div class="">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= f.text_field :name, placeholder: 'Name', class: 'form-control first_input' %>
+      </div>
+      <div class="col-sm-4">
+        <%= f.text_field :price, placeholder: 'Price', class: 'form-control'%>
+      </div>
+      <div class="col-sm-4">
+        <%= f.text_field :brand, placeholder: 'Brand', class: 'form-control'%>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 5px; margin-bottom: 15px">
+      <div class="col-sm-12">
+        <%= f.text_area :desc, placeholder: 'Description', class: 'form-control', style: "height: 200px" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6" style="float: left">
+        <%= f.collection_select :category_id, Category.all, :id, :name, class: 'margin-1' %>
+      </div>
+      <div class="col-sm-6" style="float: right">
+        <div class="" style="float: right">
+          <%= f.button :submit, class: 'btn btn-warning' do %>
+          <span class="glyphicon glyphicon-send"></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

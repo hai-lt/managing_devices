@@ -1,7 +1,7 @@
 class Device < ApplicationRecord
   belongs_to :category
-  belongs_to :room
-  belongs_to :reporter, foreign_key: :reporter_id, class_name: :user
+  # belongs_to :room
+  # belongs_to :reporter, foreign_key: :reporter_id, class_name: :user
 
   has_many :register_devices, dependent: :destroy
   has_many :registers, through: :register_devices, source: :user
