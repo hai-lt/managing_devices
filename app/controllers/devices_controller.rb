@@ -24,6 +24,7 @@ class DevicesController < ApplicationController
 
   def destroy
     @device.destroy
+    redirect_to devices_path
   end
 
   def update
