@@ -50,6 +50,11 @@ class RegistersController < ApplicationController
     @device = Device.find(params[:id])
     @lessons = Lesson.all
     @register_device = RegisterDevice.new
+
+    respond_to do |format|
+      format.html { }
+      format.js { }
+    end
   end
 
   private

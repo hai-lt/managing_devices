@@ -12,7 +12,7 @@
       </div>
       <div class="btn-group show-action" role="group" style="height: 20px">
         <div class="margin-1" style="float: left">
-          <%= button_to 'Register', new_register_path, method: :get, params: { id: device.id }, class: 'btn btn-xs btn-success' %>
+          <%= button_to 'Register', new_register_path, method: :get, remote: true, params: { id: device.id }, class: 'btn btn-xs btn-success' %>
         </div>
         <div class="margin-1" style="float: left">
           <%= button_to 'Report', new_report_path, method: :get, params: { id: device.id }, class: 'btn btn-xs btn-success'%>
