@@ -1,10 +1,14 @@
   <div class="col-sm-4 col-lg-3 center" style="height: 250px">
     <div class="col-sm-11 col-sm-offset-1 div-show-action" style="border:dotted 1px orange; border-radius: 5px; height: 90%">
       <div class="row" style="height: 200px">
-        <img src="/public/img_default.png" class= 'thumbnail' alt=<%=device.name%>/>
+        <%= link_to device_path(device) do %>
+          <img src="/public/img_default.png" class= 'thumbnail' alt=<%=device.name%>/>
+        <% end %>
       </div>
       <div class="abs-bottom-left">
-        <%= device.name %>
+        <%= link_to device_path(device) do %>
+          <%= device.name %>
+        <% end %>
       </div>
       <div class="btn-group show-action" role="group" style="height: 20px">
         <div class="margin-1" style="float: left">

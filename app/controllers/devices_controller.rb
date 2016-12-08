@@ -1,6 +1,9 @@
 class DevicesController < ApplicationController
   before_action :get_device, only: [:show, :edit, :update, :destroy]
 
+  def create
+  end
+
   def show
   end
 
@@ -21,6 +24,7 @@ class DevicesController < ApplicationController
   end
 
   def new
+    binding.pry
     @device = Device.new
   end
 
