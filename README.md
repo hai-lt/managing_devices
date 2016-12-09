@@ -4,8 +4,11 @@
 - Tao file moi voi ten la: **.evn** va them cac dong sau vao trong file
 
     `DB_PASSWORD_DEV = 'your_password'`
+
     `DB_DATABASE_NAME_DEV = 'managing_devices_dev'`
+
     `DB_USERNAME_DEV = 'your_user_name'`
+    
     `DB_DATABASE_NAME_PROD = 'managing_devices'`
 
 **Step 3:** chay cau lenh: `bundle install` de tai cac gem

@@ -1,2 +1,8 @@
-<h1>Reports#edit</h1>
-<p>Find me in app/views/reports/edit.html.erb</p>
+<%= form_for @report, as: :report, url: report_path, method: :put, class: '' do |f| %>
+  <%= f.text_field :name, value: @report.device.name%>
+  <%= f.text_area :desc %>
+  <%= f.collection_select :rank_id, Rank.all, :level, :level, selected: @report.rank.level %>
+  <%= button_tag(type: 'submit', class: 'btn btn-warning') do %>
+    <span class="glyphicon glyphicon-send"></span>
+  <% end %>
+<% end %>

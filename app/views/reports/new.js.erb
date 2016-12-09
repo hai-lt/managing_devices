@@ -1,0 +1,8 @@
+var modal = $('#simple_modal');
+modal.find('.modal-body').html("<%= j render partial: 'reports/form', object: { rank: @rank, device: @device, report: @report } %>");
+modal.find('.modal-title').html("Report <%= @device.name %>");
+modal.modal('toggle');
+modal.modal('show');
+modal.on('shown.bs.modal', function () {
+  modal.find('.first_input').focus()
+});

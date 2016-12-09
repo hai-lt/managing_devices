@@ -1,0 +1,55 @@
+<tr>
+  <% if @current_user.admin? %>
+    <td>
+      <%= report.user.name %>
+    </td>
+  <% end %>
+  <td>
+    <%= report.device.name %>
+  </td>
+  <td>
+    <%= report.rank.level %>
+  </td>
+  <td>
+    <%= report.desc %>
+  </td>
+  <td>
+    <%= report.created_at.strftime("%b #{ report.created_at.day.ordinalize }, %Y") %>
+  </td>
+  <td>
+    <label for="" class="label label-success"><%= report.status %></label>
+    <h6> <%= report.updated_at.strftime('%b %d, %Y') if report.status.casecmp('new') != 0%></h6>
+  </td>
+  <td>
+    <div class="btn-group group-inline" role="group">
+      <div class="margin-1" style="float: left">
+        <%= button_to report_path(report), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning btn-xs' do%>
+        Delete
+        <% end %>
+      </div>
+      <div class="margin-1" style="float: left">
+        <%= button_to edit_report_path(report), method: :get, class: 'btn btn-xs btn-warning' do%>
+        Edit
+      </div>
+        <% end %>
+    <% if @current_user.admin? %>
+      <% if report.status.casecmp('accepted') != 0%>
+        <div style="float: left" class="margin-1">
+          <%= form_for report, as: :report, url: report_path(report), method: :put do |f| %>
+            <%= f.hidden_field :status, value: 'accepted' %>
+            <%= f.submit 'Accept', class: 'btn btn-warning btn-xs'%>
+          <% end %>
+        </div>
+      <% end %>
+      <% if report.status.casecmp('solved') != 0%>
+        <div style="float: left" class="margin-1">
+          <%= form_for report, as: :report, url: report_path(report), method: :put do |f| %>
+            <%= f.hidden_field :status, value: 'solved' %>
+            <%= f.submit 'Solved', class: 'btn btn-warning btn-xs'%>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  </td>
+</tr>

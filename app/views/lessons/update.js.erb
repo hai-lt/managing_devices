@@ -1,0 +1,3 @@
+$('#simple_modal').modal('toggle');
+$("#lesson_<%= @lesson.code %>").replaceWith("<%= j render @lesson %>");
+$('#simple_modal').modal('hide');
