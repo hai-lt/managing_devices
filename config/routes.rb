@@ -19,4 +19,5 @@ Rails.application.routes.draw do
 
   get 'ard', to: 'ard#index'
   get 'vihicle', to: 'ard#display'
+  root to: 'ard#display'
 end
