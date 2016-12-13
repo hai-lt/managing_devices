@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_time
-    Time.at(Time.now.utc + Time.zone_offset('ICT'))
+    Time.at(Time.now.utc)
   end
 end
