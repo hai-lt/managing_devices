@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   get 'systemconfig', to: 'systemconfig#system'
   get 'permission_denied', to: 'errors#permission_denied'
+
+  get 'ard', to: 'ard#index'
 end

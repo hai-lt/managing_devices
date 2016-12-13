@@ -1,0 +1,2 @@
+module ArdHelper
+end
