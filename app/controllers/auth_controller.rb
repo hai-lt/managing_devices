@@ -12,7 +12,7 @@ class AuthController < ApplicationController
       end
     else
       @user = User.new
-      render 'login'
+      render 'create'
     end
   end
 
