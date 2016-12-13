@@ -1,5 +1,8 @@
 var modal = $('#simple_modal');
 modal.find('.modal-body').html("<%= j render partial: 'form', object: @timesheet %>");
-<% @title =  "#{ @timesheet.new_record? ? "<h3>Create timesheet</h3>" : "<h3>Update Timesheet</h3>" }" %>
+<% @title =  "#{ @timesheet.new_record? ? "<h3>Create timesheet</h3>" : "<h3>Do you want to reuse this timesheet again?</h3>" }" %>
 modal.find('.modal-title').html("<%= @title.html_safe %>");
 modal.modal('show');
+modal.on('shown.bs.modal', function () {
+  modal.find('.first_input').focus()
+})

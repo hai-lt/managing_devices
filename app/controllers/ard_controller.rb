@@ -1,12 +1,12 @@
 class ArdController < ApplicationController
   def index
-    mode = LightPlan.where('date <= ?', DateTime.now)
+    mode = LightPlan.where('date <= ?', current_time)
                     .where(value: [1,10,100])
                     .where.not(status: 'cancel')
                     .order(:date)
                     .last
     mode.update_attributes(status: 'done')
-    timesheet = Timesheet.where('date <= ?', DateTime.now)
+    timesheet = Timesheet.where('date <= ?', current_time)
                          .where.not(status: 'cancel')
                          .order(:date)
                          .last
@@ -15,9 +15,13 @@ class ArdController < ApplicationController
   end
 
   def display
-    @timesheets = Timesheet.all
-    @light_plans = LightPlan.all
 
-    render 'systemconfig/vih'
+    authenticate?
+    if @current_user
+      @timesheets = Timesheet.all.order('date desc')
+      @light_plans = LightPlan.all.order('date desc')
+
+      render 'systemconfig/vih'
+    end
   end
 end

@@ -1,12 +1,12 @@
 <tr id="timesheet_<%= timesheet.id %>">
-  <td><%= timesheet.date %></td>
+  <td><%= timesheet.date.strftime("%b %d, %Y - %H:%M:%S") %></td>
   <td><%= timesheet.turn_on %></td>
   <td><%= timesheet.turn_off %></td>
-  <td><%= timesheet.status %></td>
+  <td><label class='label label-info'><%= timesheet.status %></label></td>
   <td>
     <%= link_to edit_timesheet_path(timesheet), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
       <label for="" class="label btn-warning" style="text-decoration: none">
-        <span class="glyphicon glyphicon-edit"></span>
+        <span class="glyphicon glyphicon-repeat"></span>
       </label>
     <% end %>
 

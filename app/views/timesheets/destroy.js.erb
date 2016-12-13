@@ -1,3 +1,4 @@
 $("#timesheet_<%= @timesheet.id %>").bind('ajax:success', function () {
   $(this).closest('tr').fadeOut();
 });
+$('.body_timesheets').replaceWith("<tbody class='body_timesheets'><%= escape_javascript(render @timesheets) %></tbody>");

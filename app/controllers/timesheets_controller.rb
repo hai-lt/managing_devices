@@ -1,4 +1,5 @@
 class TimesheetsController < ApplicationController
+  before_action :authenticate?
   def index
     @timesheets = Timesheet.all
 
@@ -19,6 +20,7 @@ class TimesheetsController < ApplicationController
 
   def create
     @timesheet = Timesheet.create(permit_params)
+    @timesheets = Timesheet.all.order('date desc')
 
     respond_to do |f|
       f.html { }
@@ -37,17 +39,17 @@ class TimesheetsController < ApplicationController
 
   def update
     @timesheet = Timesheet.find(params[:id])
-    @timesheet.update!(permit_params)
-
+    @timesheet.update!(permit_params.merge!(date: current_time).merge!(status: 'reuse'))
+    @timesheets = Timesheet.all.order('date desc')
     respond_to do |f|
       f.html { }
-      f.js { render 'update' }
+      f.js { render 'index' }
     end
   end
 
   def destroy
     @timesheet = Timesheet.find(params[:id]).destroy
-
+    @timesheets = Timesheet.all.order('date desc')
     respond_to do |f|
       f.html { }
       f.js { render 'destroy' }

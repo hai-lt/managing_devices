@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
     end
     @current_user
   end
+
+  def current_time
+    Time.at(Time.now.utc + Time.zone_offset('ICT'))
+  end
 end

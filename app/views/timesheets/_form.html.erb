@@ -1,14 +1,20 @@
-<%= form_for @timesheet, remote: true, html: { class: 'form-inline' } do |f| %>
-  <div class="form-group row">
-    <div class="">
-      <%= f.text_field :turn_on, placeholder: 'Time for green light', class: 'form-control' %>
+<%= form_for @timesheet, remote: true, html: { class: '' } do |f| %>
+<div class="">
+  <div class="row">
+    <div class="col col-sm-6">
+      <%= f.text_field :turn_on, placeholder: 'Time for green light', class: 'form-control first_input' %>
+    </div>
+    <div class="col col-sm-6">
       <%= f.text_field :turn_off, placeholder: 'Time for yellow light', class: 'form-control'%>
     </div>
-    <%= f.hidden_field :date, placeholder: 'When', class: 'form-control' %>
-    <div class="modal-footer">
+  </div>
+  <%= f.hidden_field :date, placeholder: 'When', class: 'form-control' %>
+  <div class="row">
+    <div style="float: right; margin: 10px">
       <%= f.button :submit, class: 'btn btn-warning' do %>
       <span class="glyphicon glyphicon-send"></span>
       <% end %>
     </div>
   </div>
+</div>
 <% end %>
