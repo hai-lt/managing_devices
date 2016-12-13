@@ -14,6 +14,9 @@ class User < ApplicationRecord
     self.role == 'admin'
   end
 
+  def vih?
+    true if self.email.include? 'vihicle'
+  end
   private
 
     def before_save

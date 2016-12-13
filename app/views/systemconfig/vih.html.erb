@@ -1,0 +1,39 @@
+<div class="row div-warning">
+  <div class="col col-sm-6">
+    <h2 class="text-center">Timesheets</h2>
+    <%= button_to new_timesheet_path, remote: true, method: :get, class: 'label btn-warning small' do %>
+      Add new <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
+    <table class="table table-striped" id='timesheets'>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Green light</th>
+          <th>Yellow light</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @timesheets %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col col-sm-6">
+    <h2 class="text-center">LightPlans</h2>
+    <%= button_to new_light_plan_path, remote: true, method: :get, class: 'label btn-warning small' do %>
+      Add new <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
+    <table class="table table-striped" id='light_plans'>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @light_plans %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= render 'modals/simple_modal' %>

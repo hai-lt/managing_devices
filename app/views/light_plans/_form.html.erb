@@ -1,0 +1,11 @@
+<%= form_for @light_plan, remote: true, html: { class: 'form-inline' } do |f| %>
+  <div class="form-group row">
+    <%= f.text_field :date, placeholder: 'When', class: 'form-control' %>
+    <%= f.text_field :status, placeholder: 'Action', class: 'form-control'%>
+    <div class="modal-footer">
+      <%= f.button :submit, class: 'btn btn-warning' do %>
+      <span class="glyphicon glyphicon-send"></span>
+      <% end %>
+    </div>
+  </div>
+<% end %>

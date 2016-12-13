@@ -1,0 +1,4 @@
+var modal = $('#simple_modal');
+modal.modal('toggle');
+$("#light_plan_<%= @light_plan.id %>").replaceWith("<%= j render @light_plan %>");
+modal.modal('hide');

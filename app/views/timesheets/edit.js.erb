@@ -1,0 +1,5 @@
+var modal = $('#simple_modal');
+modal.find('.modal-body').html("<%= j render partial: 'form', object: @timesheet %>");
+<% @title =  "#{ @timesheet.new_record? ? "<h3>Create timesheet</h3>" : "<h3>Update Timesheet</h3>" }" %>
+modal.find('.modal-title').html("<%= @title.html_safe %>");
+modal.modal('show');

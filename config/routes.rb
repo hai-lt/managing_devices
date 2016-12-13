@@ -11,9 +11,12 @@ Rails.application.routes.draw do
   resources :categories
   resources :reports
   resources :devices
+  resources :timesheets
+  resources :light_plans
 
   get 'systemconfig', to: 'systemconfig#system'
   get 'permission_denied', to: 'errors#permission_denied'
 
   get 'ard', to: 'ard#index'
+  get 'vihicle', to: 'ard#display'
 end

@@ -3,7 +3,7 @@ class LightPlan < ApplicationRecord
 
   private
     def defaut_value
-      self.date ||= self.created_at
+      self.date ||= DateTime.now
       self.status ||= 'new'
     end
 end

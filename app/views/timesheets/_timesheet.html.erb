@@ -1,0 +1,19 @@
+<tr id="timesheet_<%= timesheet.id %>">
+  <td><%= timesheet.date %></td>
+  <td><%= timesheet.turn_on %></td>
+  <td><%= timesheet.turn_off %></td>
+  <td><%= timesheet.status %></td>
+  <td>
+    <%= link_to edit_timesheet_path(timesheet), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
+      <label for="" class="label btn-warning" style="text-decoration: none">
+        <span class="glyphicon glyphicon-edit"></span>
+      </label>
+    <% end %>
+
+    <%= link_to timesheet_path(timesheet), method: :delete, remote: true, data: { confirm: 'Are you sure?' } do %>
+      <label for="" class="label btn-warning" style="text-decoration: none">
+        <span class="glyphicon glyphicon-remove"></span>
+      </label>
+    <% end %>
+  </td>
+</tr>

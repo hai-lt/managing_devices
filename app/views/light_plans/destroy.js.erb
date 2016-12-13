@@ -1,0 +1,3 @@
+$("#light_plan_<%= @light_plan.id %>").bind('ajax:success', function () {
+  $(this).closest('tr').fadeOut();
+});
