@@ -23,9 +23,11 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
             <!-- <li><a href="/about">ABOUT</a></li> -->
-            <li><a href="/devices">DEVICES</a></li>
-            <li><a href="/registers">REGISTERS</a></li>
-            <li><a href="/reports">REPORTS</a></li>
+            <% if @current_user && !@current_user.try(:vih?) %>
+              <li><a href="/devices">DEVICES</a></li>
+              <li><a href="/registers">REGISTERS</a></li>
+              <li><a href="/reports">REPORTS</a></li>
+            <% end %>
             <% if @current_user %>
               <div class="dropdown navbar-brand" style="display: inline-block">
                 <button type="button" name="button" class="btn btn-default dropdown-toggle" data-toggle='dropdown'
