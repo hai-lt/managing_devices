@@ -2,7 +2,7 @@ class Timesheet < ApplicationRecord
   before_save :defaut_value
 
   def defaut_value
-    self.date ||= current_time
+    self.date ||= DateTime.now
     self.status ||= 'pending'
   end
 end

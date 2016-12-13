@@ -39,7 +39,7 @@ class TimesheetsController < ApplicationController
 
   def update
     @timesheet = Timesheet.find(params[:id])
-    @timesheet.update!(permit_params.merge!(date: current_time).merge!(status: 'reuse'))
+    @timesheet.update!(permit_params.merge!(date: DateTime.now).merge!(status: 'reuse'))
     @timesheets = Timesheet.all.order('date desc')
     respond_to do |f|
       f.html { }

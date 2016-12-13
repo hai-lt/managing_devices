@@ -3,7 +3,7 @@ class LightPlan < ApplicationRecord
 
   private
     def defaut_value
-      self.date ||= current_time
+      self.date ||= DateTime.now
       self.status ||= 'pending'
     end
 end

@@ -1,12 +1,12 @@
 class ArdController < ApplicationController
   def index
-    mode = LightPlan.where('date <= ?', current_time)
+    mode = LightPlan.where('date <= ?', DateTime.now)
                     .where(value: [1,10,100])
                     .where.not(status: 'cancel')
                     .order(:date)
                     .last
     mode.update_attributes(status: 'done')
-    timesheet = Timesheet.where('date <= ?', current_time)
+    timesheet = Timesheet.where('date <= ?', DateTime.now)
                          .where.not(status: 'cancel')
                          .order(:date)
                          .last
