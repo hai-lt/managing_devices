@@ -1,0 +1,5 @@
+var modal = $('#simple_modal');
+$('.body_light_plans').replaceWith("<tbody class='body_light_plans'><%= escape_javascript(render @light_plans) %></tbody>");
+modal.find('.modal-title').html("Light Mode Setting");
+modal.find('.modal-body').html("Light mode has changed successfully!");
+modal.modal('show');
