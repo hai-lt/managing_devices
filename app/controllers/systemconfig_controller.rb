@@ -5,6 +5,7 @@ class SystemconfigController < ApplicationController
     @lessons = Lesson.all.order(:code)
     @positions = Position.all.order(:id)
     @ranks = Rank.all.order(:level)
+    @users = User.all.order(:email)
     render 'index'
   end
 

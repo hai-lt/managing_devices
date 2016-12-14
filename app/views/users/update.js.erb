@@ -1,0 +1,3 @@
+$('#simple_modal').modal('toggle');
+$("#user_<%= @user.id %>").replaceWith("<%= j render @user %>");
+$('#simple_modal').modal('hide');

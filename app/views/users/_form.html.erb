@@ -1,0 +1,13 @@
+<%= form_for @user, remote: true, html: { class: 'form-inline' } do |f| %>
+  <div class="form-group row">
+    <%= f.text_field :email, placeholder: 'Email', class: 'form-control' %>
+    <%= f.text_field :password, placeholder: 'Password', class: 'form-control' %>
+    <%= f.text_field :password_confirmation, placeholder: 'Password Confirmation', class: 'form-control' %>
+    <%= f.text_field :role, placeholder: 'Admin, Teacher,..', class: 'form-control' %>
+    <div class="modal-footer">
+      <%= f.button :submit, class: 'btn btn-warning' do %>
+      <span class="glyphicon glyphicon-send"></span>
+      <% end %>
+    </div>
+  </div>
+<% end %>

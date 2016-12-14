@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :devices
   resources :timesheets
   resources :light_plans
+  resources :users
 
   get 'systemconfig', to: 'systemconfig#system'
   get 'permission_denied', to: 'errors#permission_denied'

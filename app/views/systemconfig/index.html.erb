@@ -75,4 +75,28 @@
     </table>
   </div>
 </div>
+
+<div class="row col-sm-12" style="height: 5px">
+</div>
+<div class="row div-warning">
+  <div class="col col-sm-8 col-sm-offset-2">
+    <h2 class="text-center">Users</h2>
+    <%= button_to new_user_path, remote: true, method: :get, class: 'label btn-warning small' do %>
+      Add new | <span class="glyphicon glyphicon-plus"></span>
+    <% end %>
+    <table class="table table-striped" id='users'>
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Position</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @users %>
+      </tbody>
+    </table>
+  </div>
+</div>
 <%= render 'modals/simple_modal' %>
