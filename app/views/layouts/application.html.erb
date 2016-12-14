@@ -28,6 +28,9 @@
               <li><a href="/registers">REGISTERS</a></li>
               <li><a href="/reports">REPORTS</a></li>
             <% end %>
+            <% if @current_user.try(:admin?) %>
+            <li><a href="/systemconfig">SYSTEM CONFIG</a></li>
+            <% end %>
             <% if @current_user %>
               <li><a href="/logout">SIGN OUT</a></li>
             <% else %>
