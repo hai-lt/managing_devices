@@ -2,7 +2,7 @@
     <div class="col-sm-11 col-sm-offset-1 div-show-action" style="border:dotted 1px orange; border-radius: 5px; height: 90%; max-width: 380px;">
       <div class="row" style="height: 200px">
         <%= link_to device_path(device) do %>
-          <img src="/public/img_default.png" class= 'thumbnail' alt=<%=device.name%>/>
+          <%= image_tag device.photos.first.url, alt: "Photo", class: 'img_item_device' if device.photos.present? %>
         <% end %>
       </div>
       <div class="abs-bottom-left">

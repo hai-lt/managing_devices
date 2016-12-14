@@ -3,6 +3,7 @@ class DevicesController < ApplicationController
 
   def create
     admin_authentication?
+    binding.pry
     device = Device.create!(permit_params)
 
     respond_to do |format|
@@ -43,7 +44,7 @@ class DevicesController < ApplicationController
   private
 
     def permit_params
-      params.require(:device).permit(:id, :category_id, :name, :desc, :brand,:price)
+      params.require(:device).permit(:id, :category_id, :name, :desc, :brand,:price, {photos: []})
     end
 
     def get_device

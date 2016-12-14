@@ -1,4 +1,5 @@
 class Device < ApplicationRecord
+  mount_uploaders :photos, PhotoUploader
   belongs_to :category
   # belongs_to :room
   # belongs_to :reporter, foreign_key: :reporter_id, class_name: :user

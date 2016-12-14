@@ -20,6 +20,9 @@
       <div class="col-sm-6" style="float: left">
         <%= f.collection_select :category_id, Category.all, :id, :name, class: 'margin-1' %>
       </div>
+      <div class="col-sm-6" style="float: left">
+        <%= f.file_field :photos, multiple: true %>
+      </div>
       <div class="col-sm-6" style="float: right">
         <div class="" style="float: right">
           <%= f.button :submit, class: 'btn btn-warning' do %>
