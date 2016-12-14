@@ -38,7 +38,7 @@ class DevicesController < ApplicationController
     @device = Device.find(params[:id])
     @device.update(permit_params)
 
-    redirect_to device_path
+    render 'show'
   end
 
   def new
@@ -53,7 +53,7 @@ class DevicesController < ApplicationController
   private
 
     def permit_params
-      params.require(:device).permit(:id, :category_id, :name, :desc, :brand,:price, {photos: []})
+      params.require(:device).permit(:id, :category_id, :name, :desc, :brand,:price, {photos: []}, :status)
     end
 
     def get_device
