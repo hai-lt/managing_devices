@@ -33,18 +33,18 @@
     </div>
     <div class="row">
       <%= link_to new_light_plan_path(id: 1), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
-      <label for="" class="btn btn-warning" style="text-decoration: none">
-        <span class="glyphicon glyphicon-send"></span>
+      <label for="" class="btn btn-info" style="text-decoration: none">
+        GYR Mode | <span class="glyphicon glyphicon-send"></span>
       </label>
       <% end %>
       <%= link_to new_light_plan_path(id: 10), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
-      <label for="" class="btn btn-success" style="text-decoration: none">
-        <span class="glyphicon glyphicon-send"></span>
+      <label for="" class="btn btn-warning" style="text-decoration: none">
+        Yellow Mode | <span class="glyphicon glyphicon-send"></span>
       </label>
       <% end %>
       <%= link_to new_light_plan_path(id: 100), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
       <label for="" class="btn btn-danger" style="text-decoration: none">
-        <span class="glyphicon glyphicon-send"></span>
+        Turn Off | <span class="glyphicon glyphicon-send"></span>
       </label>
       <% end %>
     </div>
