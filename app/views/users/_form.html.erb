@@ -9,8 +9,13 @@
     </div>
   </div>
   <div class="row" style="margin-top: 15px">
-    <div class="col col-sm-6">
+    <div class="col col-sm-6 col-sm-offset-3">
       <%= f.text_field :password_confirmation, placeholder: 'Password Confirmation', class: 'form-control', style: 'width: 90%' %>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 15px">
+    <div class="col col-sm-6">
+      <%= f.text_field :name, placeholder: 'Name', class: 'form-control', style: 'width: 90%' %>
     </div>
     <div class="col col-sm-6">
       <%= f.text_field :role, placeholder: 'Admin, Teacher,..', class: 'form-control', style: 'width: 90%' %>
