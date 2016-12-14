@@ -20,9 +20,6 @@
   </div>
   <div class="col col-sm-6">
     <h2 class="text-center">LightPlans</h2>
-    <%= button_to new_light_plan_path, remote: true, method: :get, class: 'label btn-warning small' do %>
-      Add new <span class="glyphicon glyphicon-plus"></span>
-    <% end %>
     <table class="table table-striped" id='light_plans'>
       <thead>
         <tr>
@@ -30,10 +27,27 @@
           <th>Status</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="body_light_plans">
         <%= render @light_plans %>
       </tbody>
+    </div>
+    <div class="row">
+      <%= link_to new_light_plan_path(id: 1), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
+      <label for="" class="btn btn-warning" style="text-decoration: none">
+        <span class="glyphicon glyphicon-send"></span>
+      </label>
+      <% end %>
+      <%= link_to new_light_plan_path(id: 10), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
+      <label for="" class="btn btn-success" style="text-decoration: none">
+        <span class="glyphicon glyphicon-send"></span>
+      </label>
+      <% end %>
+      <%= link_to new_light_plan_path(id: 100), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
+      <label for="" class="btn btn-danger" style="text-decoration: none">
+        <span class="glyphicon glyphicon-send"></span>
+      </label>
+      <% end %>
+    </div>
     </table>
   </div>
-</div>
 <%= render 'modals/simple_modal' %>
