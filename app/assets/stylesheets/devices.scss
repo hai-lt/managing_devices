@@ -40,8 +40,19 @@
   left: 5px;
 }
 
+
 .img_item_device {
   height: 200px !important;
   max-width: 100%;
   resize: horizontal !important;
+}
+
+.img_slide {
+  max-height: 500px !important;
+  min-height: 350px;
+  min-width: 350px;
+  max-width: 500px;
+}
+.transparent-background {
+  background-color: rgba(#ffc649, 0) !important;
 }

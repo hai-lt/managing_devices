@@ -30,8 +30,8 @@
       <div class="margin-1" style="float: left">
         <%= button_to edit_report_path(report), method: :get, class: 'btn btn-xs btn-warning' do%>
         Edit
-      </div>
         <% end %>
+      </div>
     <% if @current_user.admin? %>
       <% if report.status.casecmp('accepted') != 0%>
         <div style="float: left" class="margin-1">

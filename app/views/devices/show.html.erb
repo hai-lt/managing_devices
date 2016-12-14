@@ -1,3 +1,77 @@
-<h1>Devices#show</h1>
-<p>Find me in app/views/devices/show.html.erb</p>
-<%= @device.inspect %>
+<style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+  }
+</style>
+<div class="row">
+  <div class="col col-sm-4 col-sm-offset-1">
+    <div class="row">
+      <div class="">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Brand</th>
+              <th>Name</th>
+              <th><label class="label label-info"><%= @device.status %></label></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @device.brand %></td>
+              <td><%= @device.name %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <div class="margin-1" style="float: left">
+            <%= button_to edit_device_path(@device), method: :get, remote: true, class: 'btn btn-xs btn-warning' do%>
+              Edit | <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <b>Description:</b>
+      </div>
+      <h5><%= @device.desc %></h5>
+    </div>
+  </div>
+  <div class="col col-sm-6">
+    <%if @device.photos.present? %>
+    <div class="container img_slide">
+      <br>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+        <ol class="carousel-indicators abs-bottom" style="height: 0px !important">
+          <% @device.photos.each_with_index do |photo, n| %>
+          <li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
+          <% end %>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <%= image_tag @device.photos.first.url, class: 'img_slide img-rounded' %>
+          </div>
+          <% @device.photos.drop(1).each do |photo| %>
+          <div class="item">
+            <%= image_tag photo.url, class: 'img_slide  img-rounded'%>
+          </div>
+          <% end %>
+        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control transparent-background" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control transparent-background" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<%= render 'modals/simple_modal' %>

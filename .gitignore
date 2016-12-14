@@ -6,3 +6,4 @@
 /.env
 /public/img_default.png
 .byebug_history
+/public/uploads/*

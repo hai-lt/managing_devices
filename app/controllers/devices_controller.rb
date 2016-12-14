@@ -1,6 +1,6 @@
 class DevicesController < ApplicationController
   before_action :get_device, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate?
   def create
     admin_authentication?
     binding.pry
@@ -21,6 +21,12 @@ class DevicesController < ApplicationController
   end
 
   def edit
+    @device = Device.find(params[:id])
+
+    respond_to do |f|
+      f.html {}
+      f.js { render 'new' }
+    end
   end
 
   def destroy
@@ -29,7 +35,10 @@ class DevicesController < ApplicationController
   end
 
   def update
-    @device.save!
+    @device = Device.find(params[:id])
+    @device.update(permit_params)
+
+    redirect_to device_path
   end
 
   def new
