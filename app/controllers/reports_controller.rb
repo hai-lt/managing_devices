@@ -25,7 +25,14 @@ class ReportsController < ApplicationController
   end
 
   def edit
-    @report = ReportDevice.find_by(id: params[:id])
+    @device = Device.find(params[:id])
+    @ranks = Rank.all.order(:level)
+    @report = ReportDevice.find(params[:id])
+
+    respond_to do |f|
+      f.html { }
+      f.js { render 'new' }
+    end
   end
 
   def new

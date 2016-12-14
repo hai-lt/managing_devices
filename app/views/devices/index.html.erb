@@ -5,7 +5,7 @@
   <% if @current_user.admin? %>
   <div class="" style="margin: 10px">
     <%= button_to new_device_path, remote: true, method: :get, class: 'btn btn-xs btn-warning' do %>
-    Add device <span class="glyphicon glyphicon-plus"></span>
+    <b>Add</b> | <span class="glyphicon glyphicon-plus"></span>
     <% end %>
   </div>
   <% end %>

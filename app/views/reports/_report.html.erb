@@ -28,7 +28,7 @@
         <% end %>
       </div>
       <div class="margin-1" style="float: left">
-        <%= button_to edit_report_path(report), method: :get, class: 'btn btn-xs btn-warning' do%>
+        <%= button_to edit_report_path(report), method: :get, remote: true, class: 'btn btn-xs btn-warning' do%>
         Edit
         <% end %>
       </div>
