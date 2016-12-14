@@ -1,13 +1,27 @@
 <%= form_for @user, remote: true, html: { class: 'form-inline' } do |f| %>
-  <div class="form-group row">
-    <%= f.text_field :email, placeholder: 'Email', class: 'form-control' %>
-    <%= f.text_field :password, placeholder: 'Password', class: 'form-control' %>
-    <%= f.text_field :password_confirmation, placeholder: 'Password Confirmation', class: 'form-control' %>
-    <%= f.text_field :role, placeholder: 'Admin, Teacher,..', class: 'form-control' %>
-    <div class="modal-footer">
+<div class="">
+  <div class="row">
+    <div class="col col-sm-6">
+      <%= f.text_field :email, placeholder: 'Email', class: 'form-control', style: 'width: 90%' %>
+    </div>
+    <div class="col col-sm-6">
+      <%= f.text_field :password, placeholder: 'Password', class: 'form-control', style: 'width: 90%' %>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 15px">
+    <div class="col col-sm-6">
+      <%= f.text_field :password_confirmation, placeholder: 'Password Confirmation', class: 'form-control', style: 'width: 90%' %>
+    </div>
+    <div class="col col-sm-6">
+      <%= f.text_field :role, placeholder: 'Admin, Teacher,..', class: 'form-control', style: 'width: 90%' %>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 15px">
+    <div class="" style="float: right !important; margin-right: 20px">
       <%= f.button :submit, class: 'btn btn-warning' do %>
       <span class="glyphicon glyphicon-send"></span>
       <% end %>
     </div>
   </div>
+</div>
 <% end %>
