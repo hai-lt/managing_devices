@@ -30,7 +30,11 @@ class AuthController < ApplicationController
   end
 
   def create
-    @user = User.new
+    if current_user
+      redirect_to devices_path
+    else
+      @user = User.new
+    end
   end
 
   def forgot_password
