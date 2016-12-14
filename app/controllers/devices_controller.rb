@@ -3,7 +3,6 @@ class DevicesController < ApplicationController
   before_action :authenticate?
   def create
     admin_authentication?
-    binding.pry
     device = Device.create!(permit_params)
 
     respond_to do |format|

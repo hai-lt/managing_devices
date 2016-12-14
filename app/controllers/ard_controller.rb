@@ -16,12 +16,12 @@ class ArdController < ApplicationController
 
   def display
 
-    authenticate?
+    # authenticate?
     if @current_user
       @timesheets = Timesheet.all.order('date desc')
       @light_plans = LightPlan.all.order('date desc')
 
-      render 'systemconfig/vih'
     end
+    render 'systemconfig/home'
   end
 end
