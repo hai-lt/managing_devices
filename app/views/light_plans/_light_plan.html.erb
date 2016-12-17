@@ -1,18 +1,18 @@
 <tr id="light_plan_<%= light_plan.id %>">
-  <td><%= light_plan.date %></td>
+  <td><%= light_plan.date.strftime("%b %d, %Y - #{(light_plan.date.hour + 7) % 24}:%M:%S") %></td>
   <td><%= light_plan.status %></td>
   <td><%= light_plan.name %></td>
-  <!-- <td>
-    <%= link_to edit_light_plan_path(light_plan), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
+  <td>
+    <!-- <%= link_to edit_light_plan_path(light_plan), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
       <label for="" class="label btn-warning" style="text-decoration: none">
         <span class="glyphicon glyphicon-edit"></span>
       </label>
-    <% end %>
+    <% end %> -->
 
     <%= link_to light_plan_path(light_plan), method: :delete, remote: true, data: { confirm: 'Are you sure?' } do %>
       <label for="" class="label btn-warning" style="text-decoration: none">
         <span class="glyphicon glyphicon-remove"></span>
       </label>
     <% end %>
-  </td> -->
+  </td>
 </tr>

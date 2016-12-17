@@ -11,11 +11,21 @@ class LightPlansController < ApplicationController
       end
     end
     LightPlan.create(value: params[:id], name: name)
-    @light_plans = LightPlan.all.order('date desc')
+    @light_plans = LightPlan.all.order('date desc').take(10)
 
     respond_to do |f|
       f.html { }
       f.js { render 'new' }
+    end
+  end
+
+  def destroy
+    @light_plan = LightPlan.find(params[:id])
+    @light_plan.destroy
+
+    respond_to do |f|
+      f.html { }
+      f.js { render 'destroy' }
     end
   end
 end
