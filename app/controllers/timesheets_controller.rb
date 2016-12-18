@@ -11,6 +11,7 @@ class TimesheetsController < ApplicationController
 
   def new
     @timesheet = Timesheet.new
+    @timesheet.date = DateTime.now + 7.hours
 
     respond_to do |f|
       f.html { }
@@ -19,7 +20,8 @@ class TimesheetsController < ApplicationController
   end
 
   def create
-    @timesheet = Timesheet.create(permit_params)
+    @timesheet = Timesheet.create!(permit_params)
+    @timesheet.update_attributes(date: @timesheet.date - 7.hours)
     @timesheets = Timesheet.all.order('date desc')
 
     respond_to do |f|
@@ -30,6 +32,7 @@ class TimesheetsController < ApplicationController
 
   def edit
     @timesheet = Timesheet.find(params[:id])
+    @timesheet.date += 7.hours
 
     respond_to do |f|
       f.html { }
@@ -39,7 +42,12 @@ class TimesheetsController < ApplicationController
 
   def update
     @timesheet = Timesheet.find(params[:id])
-    @timesheet.update!(permit_params.merge!(date: DateTime.now).merge!(status: 'reuse'))
+    if @timesheet.status == 'pending'
+      @timesheet.update!(permit_params.merge!(date: DateTime.now))
+    else
+      @timesheet = Timesheet.create!(permit_params)
+    end
+    @timesheet.update_attributes(date: @timesheet.date - 7.hours)
     @timesheets = Timesheet.all.order('date desc')
     respond_to do |f|
       f.html { }

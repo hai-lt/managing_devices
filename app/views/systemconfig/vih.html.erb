@@ -1,6 +1,13 @@
-<div class="row div-warning">
+<div class="row">
+  <h1 class="text-center text-warning" style="margin: auto">Smart Vihicle Light System</h1>
+  <hr style="width: 50%; margin: 16px auto">
+  <hr style="width: 80%;margin: 5px auto">
+</div>
+<div class="row">
   <div class="col col-sm-6">
-    <h2 class="text-center">Timesheets</h2>
+    <h3 class="text-center text-success">Timesheets</h3>
+    <hr style="width: 30%; margin: 8px auto">
+    <hr style="width: 50%; margin: auto">
     <%= button_to new_timesheet_path, remote: true, method: :get, class: 'label btn-warning small' do %>
       Add new <span class="glyphicon glyphicon-plus"></span>
     <% end %>
@@ -20,7 +27,9 @@
   </div>
   <!-- ===========================================  -->
   <div class="col col-sm-6">
-    <h2 class="text-center">LightPlans</h2>
+    <h3 class="text-center text-success">LightPlans</h3>
+    <hr style="width: 30%; margin: 8px auto">
+    <hr style="width: 50%; margin: auto">
     <table class="table table-striped" id='light_plans'>
       <div class="row group-inline" style=" margin: 8px">
         <div class="col" style="float: left;">
@@ -50,7 +59,7 @@
           <th>Date</th>
           <th>Status</th>
           <th>Name</th>
-          <th>Sensor</th>
+          <th>Sensors</th>
         </tr>
       </thead>
       <tbody class="body_light_plans">
