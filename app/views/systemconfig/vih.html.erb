@@ -8,8 +8,8 @@
     <h3 class="text-center text-success">Timesheets</h3>
     <hr style="width: 30%; margin: 8px auto">
     <hr style="width: 50%; margin: auto">
-    <%= button_to new_timesheet_path, remote: true, method: :get, class: 'label btn-warning small' do %>
-      Add new <span class="glyphicon glyphicon-plus"></span>
+    <%= button_to new_timesheet_path, remote: true, method: :get, class: 'btn btn-warning btn-xs' do %>
+      Add new | <span class="glyphicon glyphicon-plus"></span>
     <% end %>
     <table class="table table-striped" id='timesheets'>
       <thead>
