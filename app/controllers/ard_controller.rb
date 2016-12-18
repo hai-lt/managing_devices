@@ -21,8 +21,7 @@ class ArdController < ApplicationController
     if @current_user
       @timesheets = Timesheet.all.order('date desc')
       @light_plans = LightPlan.all.order('date desc').take(10)
-
+      render 'systemconfig/vih'
     end
-    render 'systemconfig/vih'
   end
 end
