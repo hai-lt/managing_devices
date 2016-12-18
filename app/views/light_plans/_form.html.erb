@@ -1,12 +1,13 @@
 <%= form_for @light_plan, remote: true, html: { class: 'form-inline' } do |f| %>
-  <div class="form-group row" style="width: 100%">
+<div class="">
+  <div class="row">
+    <div class="col col-sm-10 col-sm-offset-1 form-inline" style="width: 100%">
+      <%= f.datetime_select :date, { order: [:day, :month, :year] }, { class: 'form-control first_input form-small' } %>
+    </div>
+  </div>
+  <div class="row" style="width: 100%">
     <%= f.hidden_field :value %>
     <%= f.hidden_field :name %>
-    <div class="row">
-      <div class="row col-sm-10 col-sm-offset-2" style="width: 100%">
-        <%= f.datetime_select :date, { order: [:day, :month, :year] }, { class: 'form-control first_input form-small' } %>
-      </div>
-    </div>
     <% if @light_plan.value == 1 %>
     <div class="row group-inline" style="margin: 8px">
       <div class="col" style="float: left">
@@ -25,4 +26,5 @@
       </div>
     </div>
   </div>
+</div>
 <% end %>

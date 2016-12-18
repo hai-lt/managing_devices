@@ -8,6 +8,11 @@
       <%= f.text_field :turn_off, placeholder: 'Time for yellow light', class: 'form-control'%>
     </div>
   </div>
+  <div class="row" style="margin-top: 8px;">
+    <div class="col col-sm-10 col-sm-offset-1 form-inline">
+      <%= f.datetime_select :date, { order: [:day, :month, :year] }, { class: 'form-control first_input form-small' } %>
+    </div>
+  </div>
   <%= f.hidden_field :date, placeholder: 'When', class: 'form-control' %>
   <div class="row">
     <div style="float: right; margin: 10px">

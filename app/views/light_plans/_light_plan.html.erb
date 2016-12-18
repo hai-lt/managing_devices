@@ -1,12 +1,16 @@
 <tr id="light_plan_<%= light_plan.id %>">
-  <td><%= light_plan.date.strftime("%b %d, %Y - #{(light_plan.date.hour + 7) % 24}:%M:%S") %></td>
+  <td><%= light_plan.date.in_time_zone(7).strftime("%b %d, %Y - %H:%M") %></td>
   <td>
     <label class="label label-info">
       <%= light_plan.status %>
     </label>
   </td>
   <td><%= light_plan.name %></td>
-  <td><%= light_plan.sensor %></td>
+  <td>
+  <% if light_plan.sensor %>
+    <label class="label label-success">Enable</label>
+  <% end %>
+  </td>
 
   <td>
     <%= link_to edit_light_plan_path(light_plan), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
