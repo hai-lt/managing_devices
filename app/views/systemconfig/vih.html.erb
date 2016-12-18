@@ -18,63 +18,67 @@
       </tbody>
     </table>
   </div>
+  <!-- ===========================================  -->
   <div class="col col-sm-6">
     <h2 class="text-center">LightPlans</h2>
     <table class="table table-striped" id='light_plans'>
+      <div class="row group-inline" style=" margin: 8px">
+        <div class="col" style="float: left;">
+            Choose the light mode:
+        </div>
+        <div class="col" style="float: right">
+          <%= link_to new_light_plan_path(id: 1), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
+          <label for="" class="btn btn-info" style="text-decoration: none">
+            GYR | <span class="glyphicon glyphicon-send"></span>
+          </label>
+          <% end %>
+          <%= link_to new_light_plan_path(id: 10), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
+          <label for="" class="btn btn-warning" style="text-decoration: none">
+            Yellow | <span class="glyphicon glyphicon-send"></span>
+          </label>
+          <% end %>
+          <%= link_to new_light_plan_path(id: 100), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
+          <label for="" class="btn btn-danger" style="text-decoration: none">
+            Turn Off | <span class="glyphicon glyphicon-send"></span>
+          </label>
+          <% end %>
+        </div>
+      </div>
+    </div>
       <thead>
         <tr>
           <th>Date</th>
           <th>Status</th>
-          <th>Mode</th>
+          <th>Name</th>
+          <th>Sensor</th>
         </tr>
       </thead>
       <tbody class="body_light_plans">
         <%= render @light_plans %>
       </tbody>
-    </div>
-    <div class="row">
-      <%= link_to new_light_plan_path(id: 1), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
-      <label for="" class="btn btn-info" style="text-decoration: none">
-        GYR Mode | <span class="glyphicon glyphicon-send"></span>
-      </label>
-      <% end %>
-      <%= link_to new_light_plan_path(id: 10), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
-      <label for="" class="btn btn-warning" style="text-decoration: none">
-        Yellow Mode | <span class="glyphicon glyphicon-send"></span>
-      </label>
-      <% end %>
-      <%= link_to new_light_plan_path(id: 100), { remote: true, 'data-toggle' => 'modal', 'data-target' => '#simple_modal'} do %>
-      <label for="" class="btn btn-danger" style="text-decoration: none">
-        Turn Off | <span class="glyphicon glyphicon-send"></span>
-      </label>
-      <% end %>
-    </div>
-    <div class="">
-      <input id="toggle-event" type="checkbox" checked data-toggle="toggle" data-onstyle="warning" data-offstyle="danger">
-      <div id="console-event"></div>
-    </div>
     </table>
-  </div>
+    </div>
 <%= render 'modals/simple_modal' %>
 <script>
 $(function() {
   $('#toggle-event').change(function() {
     var checked = $(this).prop('checked');
-    var _data;
-    var _status
-    $.get('https://dut-md.herokuapp.com/ard', function (data, status) {
-      _data = data;
-      _status = status;
+    $.post("/light_plans",
+   {
+       name: "Donald Duck",
+       city: "Duckburg"
+   },
+   function(data, status){
+       alert("Data: " + data + "\nStatus: " + status);
+   });
+    var _data = checked;
+    var _status = 0;
       if (checked == 'true') {
         alert('Enable: ' + _data);
       }
       else {
         alert('Disable: ' + _data);
       }
-    }, function (data, status) {
-      alert('Failed');
     });
-    $('#console-event').html('Toggle: ' + $(this).prop('checked'))
-  })
 })
 </script>

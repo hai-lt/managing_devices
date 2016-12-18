@@ -1,4 +1,4 @@
 var modal = $('#simple_modal');
-$("<%= escape_javascript(render @light_plan) %>").appendTo("#light_plans")
+$('.body_light_plans').replaceWith("<tbody class='body_light_plans'><%= escape_javascript(render @light_plans) %></tbody>");
 modal.modal('toggle');
 modal.modal('hide');

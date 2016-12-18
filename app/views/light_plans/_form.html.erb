@@ -1,17 +1,28 @@
 <%= form_for @light_plan, remote: true, html: { class: 'form-inline' } do |f| %>
-  <div class="form-group row">
-    
-    <div class="input-group bootstrap-timepicker timepicker">
-      <input id="timepicker1" type='text' name="name" value="" class="form-control input-small">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-      <input type="time" name="name" value="" class=" form-control input-small">
+  <div class="form-group row" style="width: 100%">
+    <%= f.hidden_field :value %>
+    <%= f.hidden_field :name %>
+    <div class="row">
+      <div class="row col-sm-10 col-sm-offset-2" style="width: 100%">
+        <%= f.datetime_select :date, { order: [:day, :month, :year] }, { class: 'form-control first_input form-small' } %>
+      </div>
     </div>
-    <%= f.text_field :date, placeholder: 'When', class: 'form-control' %>
-    <%= f.text_field :status, placeholder: 'Action', class: 'form-control'%>
-    <div class="modal-footer">
+    <% if @light_plan.value == 1 %>
+    <div class="row group-inline" style="margin: 8px">
+      <div class="col" style="float: left">
+        Do you want to use Sensor?
+      </div>
+      <div class="col" style="float: right">
+        <%= f.check_box :sensor, data: { toggle: 'toggle'}%>
+      </div>
+    </div>
+    <% end %>
+    <div class="row">
+      <div class="" style="float: right">
       <%= f.button :submit, class: 'btn btn-warning' do %>
       <span class="glyphicon glyphicon-send"></span>
       <% end %>
+      </div>
     </div>
   </div>
 <% end %>

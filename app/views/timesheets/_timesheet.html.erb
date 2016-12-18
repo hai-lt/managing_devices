@@ -1,5 +1,5 @@
 <tr id="timesheet_<%= timesheet.id %>">
-  <td><%= timesheet.date.strftime("%b %d, %Y - #{(timesheet.date.hour + 7) % 24}:%M:%S") %></td>
+  <td><%= timesheet.date.in_time_zone(7).strftime("%b %d, %Y") %></td>
   <td><%= timesheet.turn_on %></td>
   <td><%= timesheet.turn_off %></td>
   <td><label class='label label-info'><%= timesheet.status %></label></td>
