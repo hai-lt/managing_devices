@@ -11,7 +11,8 @@ class ArdController < ApplicationController
                          .order(:date)
                          .last
     timesheet.update_attributes(status: 'done')
-    sensor = mode.sensor && mode.value == 1 ? 0 : 1
+    sensor = 0
+    sensor = 1 if !mode.sensor && mode.value == 1
     render json: { mode: mode.value + sensor, green: timesheet.turn_on, yellow: timesheet.turn_off }
   end
 

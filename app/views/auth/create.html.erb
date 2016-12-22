@@ -1,14 +1,23 @@
-<div class="container">
-  <div class="form-signin">
-    <%= form_for(@user, url: auth_path, html: { class: ''}) do |f| %>
-    <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
-    <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
+<div class="video-background">
+  <div class="video-foreground">
+    <iframe src="https://www.youtube.com/embed/R9b-TJoprio?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=R9b-TJoprio" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div id="vidtop-content">
+  <div class="vid-info">
+    <div class="form-signin">
+      <%= form_for(@user, url: auth_path, html: { class: ''}) do |f| %>
+      <%= f.email_field :email, class: 'form-control', placeholder: 'Email', style: 'margin-bottom: 8px'%>
+      <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me">
+          <h5 style="color: white">Remember me</h5>
+        </label>
+      </div>
+      <%= f.submit 'Log In', class: 'btn btn-lg btn-warning btn-block'%>
+      <% end %>
     </div>
-    <%= f.submit 'Log In', class: 'btn btn-lg btn-warning btn-block'%>
-    <% end %>
   </div>
 </div>
