@@ -1,4 +1,5 @@
 var modal = $('#simple_modal');
 $('.body_timesheets').replaceWith("<tbody class='body_timesheets'><%= escape_javascript(render @timesheets) %></tbody>");
-modal.modal('toggle');
-modal.modal('hide');
+modal.find(".modal-body").html("Successfully");
+modal.find(".modal-title").html("Information");
+modal.focus();

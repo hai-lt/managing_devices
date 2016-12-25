@@ -2,3 +2,8 @@ $("#timesheet_<%= @timesheet.id %>").bind('ajax:success', function () {
   $(this).closest('tr').fadeOut();
 });
 $('.body_timesheets').replaceWith("<tbody class='body_timesheets'><%= escape_javascript(render @timesheets) %></tbody>");
+var modal = $("#simple_modal");
+modal.find(".modal-title").html("Information");
+modal.find(".modal-body").html("Delete a new timesheet successfully!")
+modal.focus();
+modal.modal("show");
