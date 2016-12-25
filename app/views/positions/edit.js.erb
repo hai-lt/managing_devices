@@ -1,4 +1,0 @@
-$("#simple_modal").find('.modal-body').html("<%= j render partial: 'positions/form', object: @position  %>");
-<% @title =  "#{ @position.new_record? ? "<h3>Create Position</h3>" : "<h3>Update Position</h3>" }" %>
-$("#simple_modal").find('.modal-title').html("<%= @title.html_safe %>");
-$("#simple_modal").modal('show');

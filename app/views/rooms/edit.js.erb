@@ -1,4 +1,0 @@
-$("#simple_modal").find('.modal-body').html("<%= j render partial: 'rooms/form', object: @room  %>");
-<% @title =  "#{ @room.new_record? ? "<h3>Create Room</h3>" : "<h3>Update Room</h3>" }" %>
-$("#simple_modal").find('.modal-title').html("<%= @title.html_safe %>");
-$("#simple_modal").modal('show');

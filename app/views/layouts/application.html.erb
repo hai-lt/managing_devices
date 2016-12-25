@@ -24,15 +24,6 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <!-- <li><a href="/about">ABOUT</a></li> -->
-            <% if @current_user && !@current_user.try(:vih?) %>
-              <li><a href="/devices">DEVICES</a></li>
-              <li><a href="/registers">REGISTERS</a></li>
-              <li><a href="/reports">REPORTS</a></li>
-              <% if @current_user.try(:admin?) %>
-              <li><a href="/systemconfig">SYSTEM CONFIG</a></li>
-              <% end %>
-            <% end %>
             <% if @current_user %>
               <li><a href="/logout">SIGN OUT</a></li>
             <% else %>
