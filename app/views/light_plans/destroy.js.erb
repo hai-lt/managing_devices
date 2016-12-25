@@ -1,3 +1,8 @@
 $("#light_plan_<%= @light_plan.id %>").bind('ajax:success', function () {
   $(this).closest('tr').fadeOut();
 });
+var modal = $("#simple_modal");
+modal.find(".modal-title").html("Information");
+modal.find(".modal-body").html("Delete successfully!")
+modal.focus();
+modal.modal("show");
