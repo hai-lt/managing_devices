@@ -7,12 +7,6 @@ class AuthController < ApplicationController
       session[:access_token] = token
       if user.vih?
         redirect_to vihicle_path
-      else
-        if request.referrer.include? '/auth'
-          redirect_to devices_path
-        else
-          redirect_to request.referrer
-        end
       end
     else
       @user = User.new
@@ -31,7 +25,7 @@ class AuthController < ApplicationController
 
   def create
     if current_user
-      redirect_to devices_path
+      redirect_to vihicle_path
     else
       @user = User.new
     end
