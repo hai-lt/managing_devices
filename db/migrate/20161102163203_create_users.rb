@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :address
       t.string :phone
       t.string :avatar
-      t.references :position, foreign_key: true
 
       t.timestamps
     end

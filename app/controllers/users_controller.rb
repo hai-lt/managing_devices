@@ -19,11 +19,22 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(permit_params)
+    if @current_user.vih?
+      success = if permit_params[:password].present?
+        @user.update(permit_params)
+      else
+        @user.update_attribute(:name, permit_params[:name]);
+      end
+    end
 
     respond_to do |f|
-      f.html { }
-      f.js { render 'update' }
+      if success
+        f.html { }
+        f.js { render 'update' }
+      else
+        f.html { }
+        f.js { render 'errors/failed' }
+      end
     end
   end
 
@@ -34,6 +45,10 @@ class UsersController < ApplicationController
       f.html { }
       f.js { render 'destroy' }
     end
+  end
+
+  def index
+    @users = User.all.order(:email)
   end
 
   def create

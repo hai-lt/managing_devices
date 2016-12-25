@@ -5,9 +5,7 @@ class AuthController < ApplicationController
       token = generate_access_token(user)
       AccessToken.create!(access_token: token, user: user)
       session[:access_token] = token
-      if user.vih?
-        redirect_to vihicle_path
-      end
+      redirect_to vihicle_path
     else
       @user = User.new
       render 'create'
