@@ -13,12 +13,17 @@ class LightPlansController < ApplicationController
     if params[:light_plan][:sensor].to_i == 0 && params[:light_plan][:value].to_i == 1
       params[:light_plan][:sensor] = false
     end
-    @light_plan = LightPlan.create(permit_params)
+    @light_plan = LightPlan.new(permit_params)
     @light_plan.update_attributes(date: @light_plan.date - 7.hours)
     @light_plans = LightPlan.all.order('date desc').take(10)
     respond_to do |f|
-      f.html { }
-      f.js { render 'create' }
+      if @light_plan.save
+        f.html { }
+        f.js { render 'create' }
+      else
+        f.html {}
+        f.js { render 'errors/failed' }
+      end
     end
   end
 
@@ -44,17 +49,25 @@ class LightPlansController < ApplicationController
 
   def update
     light_plan = LightPlan.find(params[:id])
+    date = LightPlan.new(permit_params).date - 7.hours
     if light_plan.status == 'done'
-      @light_plan = LightPlan.create(permit_params)
+      @light_plan = LightPlan.new(permit_params)
+      @light_plan.date = date
+      success = @light_plan.save
     else
-      light_plan.update(permit_params)
-      @light_plan = light_plan
+      success = light_plan.update(date: date, sensor: permit_params[:sensor])
+      @light_plan = light_plan if success
     end
-    @light_plan.update_attributes(date: @light_plan.date - 7.hours)
+    # @light_plan.update_attributes(date: @light_plan.date - 7.hours) if success
     @light_plans = LightPlan.all.order('date desc').take(10)
     respond_to do |f|
-      f.html { }
-      f.js { render 'update' }
+      if success
+        f.html { }
+        f.js { render 'update' }
+      else
+        f.html { }
+        f.js { render 'errors/failed' }
+      end
     end
 
   end

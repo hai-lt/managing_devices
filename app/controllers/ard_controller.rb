@@ -5,12 +5,21 @@ class ArdController < ApplicationController
                     .where.not(status: 'cancel')
                     .order(:date)
                     .last
-    mode.update_attributes(status: 'done')
+    if mode
+      mode.update_attribute(:status, 'done')
+    else
+      mode = LightPlan.new(date: DateTime.now.utc, value: 1)
+    end
     timesheet = Timesheet.where('date <= ?', DateTime.now)
                          .where.not(status: 'cancel')
                          .order(:date)
                          .last
-    timesheet.update_attributes(status: 'done')
+    if timesheet
+      timesheet.update_attribute(:status, 'done')
+    else
+      timesheet = Timesheet.new(turn_on: 3, turn_off: 1)
+    end
+
     sensor = 0
     sensor = 1 if !mode.sensor && mode.value == 1
     render json: { mode: mode.value + sensor, green: timesheet.turn_on, yellow: timesheet.turn_off }

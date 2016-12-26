@@ -20,13 +20,20 @@ class TimesheetsController < ApplicationController
   end
 
   def create
-    @timesheet = Timesheet.create!(permit_params)
-    @timesheet.update_attributes(date: @timesheet.date - 7.hours)
+    date = Timesheet.new(permit_params).date - 7.hours
+    @timesheet = Timesheet.new(permit_params)
+    @timesheet.date = date
+    success = @timesheet.save
     @timesheets = Timesheet.all.order('date desc')
 
     respond_to do |f|
-      f.html { }
-      f.js { render 'create' }
+      if success
+        f.html { }
+        f.js { render 'create' }
+      else
+        f.html { }
+        f.js { render 'errors/failed' }
+      end
     end
   end
 
@@ -41,17 +48,24 @@ class TimesheetsController < ApplicationController
   end
 
   def update
+    date = Timesheet.new(permit_params).date - 7.hours
     @timesheet = Timesheet.find(params[:id])
     if @timesheet.status == 'pending'
-      @timesheet.update!(permit_params.merge!(date: DateTime.now))
+      success = @timesheet.update(date: date, turn_on: permit_params[:turn_on], turn_off: permit_params[:turn_off])
     else
-      @timesheet = Timesheet.create!(permit_params)
+      @timesheet = Timesheet.new(permit_params)
+      @timesheet.date = date
+      success = @timesheet.save
     end
-    @timesheet.update_attributes(date: @timesheet.date - 7.hours)
     @timesheets = Timesheet.all.order('date desc')
     respond_to do |f|
-      f.html { }
-      f.js { render 'index' }
+      if success
+        f.html { }
+        f.js { render 'index' }
+      else
+        f.html { }
+        f.js { render 'errors/failed' }
+      end
     end
   end
 
