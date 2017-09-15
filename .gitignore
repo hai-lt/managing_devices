@@ -7,3 +7,4 @@
 /public/img_default.png
 .byebug_history
 /public/uploads/*
+/config/database.yml
