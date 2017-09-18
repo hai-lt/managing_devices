@@ -18,8 +18,7 @@ class AuthController < ApplicationController
     redirect_to auth_path
   end
 
-  def signup
-  end
+  def signup; end
 
   def create
     if current_user
@@ -35,6 +34,7 @@ class AuthController < ApplicationController
   end
 
   private
+
     def permit_params
       params.require(:user).permit(:email, :password, :remember_me)
     end
