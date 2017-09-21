@@ -15,6 +15,10 @@
 
   <tbody>
     <% @cameras.each do |camera| %>
+    <%# camera là object chứa các thông tin của một cái camera %>
+    <%# camera.x, camera.y là toạ độ theo kinh tuyến, vĩ tuyến trên gugo map, cái này mình sẽ set cho nó %>
+    <%# desciption: mô tả, cái này là thôgn tin thêm. Source là địa chỉ ip mà mình sẽ lấy hình ảnh từ camera %>
+    <%#       rồi xử lí realtime  %>
       <tr>
         <td><%= camera.x %></td>
         <td><%= camera.y %></td>
