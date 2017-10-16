@@ -17,7 +17,7 @@ class CamerasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create camera" do
     assert_difference('Camera.count') do
-      post cameras_url, params: { camera: {  } }
+      post cameras_url, params: { camera: { description: @camera.description, source: @camera.source, x: @camera.x, y: @camera.y } }
     end
 
     assert_redirected_to camera_url(Camera.last)
@@ -34,7 +34,7 @@ class CamerasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update camera" do
-    patch camera_url(@camera), params: { camera: {  } }
+    patch camera_url(@camera), params: { camera: { description: @camera.description, source: @camera.source, x: @camera.x, y: @camera.y } }
     assert_redirected_to camera_url(@camera)
   end
 
